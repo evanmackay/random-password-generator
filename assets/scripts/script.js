@@ -17,20 +17,22 @@ function generatePass (){
 // initial propmt for user to select character length
   let passwordPrompt = prompt("Select a character length between 8 and 128 characters.")
 // pulls from the array values to select which random characters will be used.
+
+// If statement makes sure that the users input meets the criteria to generate a proper password.
   if (passwordPrompt < 8 || passwordPrompt > 128) {
     alert("Password must be within 8 or 128 characters.")
   } else {
     if(confirm("Would you like to add uppercase letters?")) {
-      Array.prototype.push.apply(allEl, upperCaseLtrsArr)
+      allEl = allEl.concat(upperCaseLtrsArr)
     }
     if(confirm("Would you like to add lowercase letters?")) {
-      Array.prototype.push.apply(allEl, lowerCaseLtrsArr)
+      allEl = allEl.concat(lowerCaseLtrsArr)
     }
     if(confirm("Would you like to add numbers?")) {
-      Array.prototype.push.apply(allEl, numbersArr)
+      allEl = allEl.concat(numbersArr)
     }
     if(confirm("Would you like to add symbols?")) {
-      Array.prototype.push.apply(allEl, symbolsArr)
+      allEl = allEl.concat(symbolsArr)
     }
     // if user doesn't select any criteria, they will be alerted to select at least one criteria
     if(allEl.length === 0) {
